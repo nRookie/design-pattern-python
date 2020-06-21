@@ -1,8 +1,23 @@
 
 class Beverage{
     description
+    milk 
+    soy
+    mocha
+    whip 
+
     getDescription()
     cost()
+    hasMilk()
+    setMilk()
+    hasSoy()
+    setSoy()
+    hasMocha()
+    setMocha()
+    hasWhip()
+    setWhip()
+
+    //Other useful methods
 }
 
 
