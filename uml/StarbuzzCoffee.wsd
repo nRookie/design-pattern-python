@@ -1,21 +1,10 @@
 
 class Beverage{
     description
-    milk 
-    soy
-    mocha
-    whip 
+
 
     getDescription()
     cost()
-    hasMilk()
-    setMilk()
-    hasSoy()
-    setSoy()
-    hasMocha()
-    setMocha()
-    hasWhip()
-    setWhip()
 
     //Other useful methods
 }
@@ -39,8 +28,43 @@ class Espresso{
     cost()
 }
 
+class CondimentDecorator{
+    getDescription()
+}
+
+class Milk{
+    Beverage beverage
+    cost()
+    getDescription()
+}
+
+class Mocha{
+    Beverage beverage
+    cost()
+    getDescription()
+}
+
+class Soy{
+    Beverage beverage
+    cost()
+    getDescription()
+}
+
+class Whip{
+    Beverage beverage
+    cost()
+    getDescription()
+}
+
 
 Beverage <|-- HouseBlend
 Beverage <|-- DarkRoast
 Beverage <|-- Decaf
 Beverage <|-- Espresso
+Beverage <|-- CondimentDecorator
+
+
+CondimentDecorator <|-- Milk
+CondimentDecorator <|-- Mocha
+CondimentDecorator <|-- Soy
+CondimentDecorator <|-- Whip
