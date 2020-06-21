@@ -1,0 +1,77 @@
+
+
+interface Subject{
+    registerObserver()
+    remoteObserver()
+    notifyObserver()
+}
+
+
+
+interface Observer{
+    update()
+}
+
+interface DisplayElement
+{
+    display()
+}
+
+
+
+class CurrentConditionsDisplay
+{
+    update()
+    display()
+}
+
+class StatisticsDisplay
+{
+    update()
+    display()
+}
+
+class ThirdPartyDisplay
+{
+    update()
+    display()
+
+}
+
+class ForecastDisplay
+{
+    update()
+    display()
+}
+
+class WeatherData{
+    registerObserver()
+    removeObserver()
+    notifyObserver()
+
+    getTemperature()
+    getHumidity()
+    getPressure()
+    measurementsChanged()
+}
+
+
+class WeatherData implements Subject
+
+class ThirdPartyDisplay implements DisplayElement
+
+class ThirdPartyDisplay implements Observer
+
+class CurrentConditionsDisplay implements DisplayElement
+
+class CurrentConditionsDisplay implements Observer
+
+class StatisticsDisplay implements DisplayElement
+
+class StatisticsDisplay implements Observer
+
+class ForecastDisplay implements DisplayElement
+
+class ForecastDisplay implements Observer
+
+WeatherData <|--  CurrentConditionsDisplay
