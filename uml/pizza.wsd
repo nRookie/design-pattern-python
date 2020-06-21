@@ -2,6 +2,7 @@
 
 class PizzaStore{
     orderPizza()
+    createPizza()
 }
 
 class SimplePizzaFactory{
@@ -25,10 +26,18 @@ class ClamPizza{
 
 class PepperoniPizza{}
 
+class NYStylePizzaStore{}
+
+class ChicagoStylePizzaStore{}
+
 Pizza <|-- CheesePizza
 Pizza <|-- VeggiePizza
 Pizza <|-- ClamPizza
 Pizza <|-- PepperoniPizza
 
+
+PizzaStore <|-- NYStylePizzaStore
+
+PizzaStore <|-- ChicagoStylePizzaStore
 
 @enduml
