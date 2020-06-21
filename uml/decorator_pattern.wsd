@@ -1,0 +1,42 @@
+@startuml decorator pattern
+class component{
+    methodA()
+    methodB()
+}
+
+
+
+class ConcreteComponent{
+    methodA()
+    methodB()
+}
+
+class Decorator{
+    methodA()
+    methodB()
+}
+
+
+class ConcreteDecoratorA {
+    Component wrappedObj
+    methodA()
+    methodB()
+    newBehavior()
+    //other methods
+}
+
+
+class ConcreteDecoratorB {
+    Component wrappedObj
+    Object newState
+    methodA()
+    methodB()
+    //other methods
+}
+
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Decorator <|-- ConcreteDecoratorA
+Decorator <|-- ConcreteDecoratorB
+@enduml
