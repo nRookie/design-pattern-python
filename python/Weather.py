@@ -61,3 +61,19 @@ class WeatherData(Subject):
         self.humidity = humidity
         self.pressure = pressure
         self.measurementsChanged()
+
+
+class CurrentConditionsDisplay(Observer, DisplayElement):
+    def __init__(self, weatherData):
+        self.temperature = None
+        self.humidity = None
+        self.weatherData = weatherData
+        weatherData.registerObserver(self)
+
+    def update(self, temperature, humidity, pressure):
+        self.temperature = temperature
+        self.humidity = humidity
+        self.display()
+
+    def display(self):
+        print("Current conditions:{0} F degrees and {1}".format(self.temperature, self.humidity))
