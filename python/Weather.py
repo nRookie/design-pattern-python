@@ -76,4 +76,15 @@ class CurrentConditionsDisplay(Observer, DisplayElement):
         self.display()
 
     def display(self):
-        print("Current conditions:{0} F degrees and {1}".format(self.temperature, self.humidity))
+        print("Current conditions:{0} F degrees and {1} humidity".format(self.temperature, self.humidity))
+
+
+if __name__ == '__main__':
+    weatherData = WeatherData()
+    currentConditionsDisplay = CurrentConditionsDisplay(weatherData)
+    #StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData)
+    #ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData)
+
+    weatherData.setMeasurements(80, 65, 30.4)
+    weatherData.setMeasurements(82, 70, 29.2)
+    weatherData.setMeasurements(78, 90, 29.2)
