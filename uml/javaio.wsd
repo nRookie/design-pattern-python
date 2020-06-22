@@ -1,0 +1,26 @@
+@startuml java io
+class InputStream{}
+
+class FileInputStream{
+}
+class StringBufferInputStream{}
+class ByteArrayInputStream{}
+class FilterInputStream{}
+class PushbackInputStream{}
+class BufferedInputStream{}
+class DataInputStream{}
+class LineNumberInputStream{}
+
+
+
+InputStream <|-- FileInputStream
+InputStream <|-- StringBufferInputStream
+InputStream <|-- ByteArrayInputStream
+InputStream <|-- FilterInputStream
+
+
+FilterInputStream <|-- PushbackInputStream
+FilterInputStream <|-- BufferedInputStream
+FilterInputStream <|-- DataInputStream
+FilterInputStream <|-- LineNumberInputStream
+@enduml
