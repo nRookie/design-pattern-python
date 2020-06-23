@@ -1,9 +1,17 @@
 public class Singleton {
-    private static Singleton uniqueInstance = new Singleton();
+    private volatile static Singleton uniqueInstance;
 
     private Singleton() {}
 
     public static synchronized Singleton getInstance(){
+        if(uniqueInstance == null) {
+            //Check for an instance and if there isn't one , enter a synchronized block.
+            synchronized(Singleton.class) {
+                if(uniqueInstance == null){
+                    uniqueInstance = new Singleton();
+                }
+            }
+        }
         return uniqueInstance;
     }
 
@@ -11,7 +19,6 @@ public class Singleton {
 }
 
 /*
-Using this approach we rely on the JVM to create the unique instance of the Singleton when the 
-class is loaded. The JVM guarantees that the instance will be created before any thread accesses
-the static uniqueInstance variable.
+The volatile keyword ensures that multiple threads handle the uniqueInstance variable
+correctly when it is being initialized to the Singleton instance.
 */
