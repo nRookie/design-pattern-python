@@ -1,4 +1,4 @@
-@startuml abstract factory
+@startuml abstractfactory
 
 interface AbstractFactory
 {
@@ -62,4 +62,4 @@ ProductB2 <|-- ConcreteFactory2
 ProductA1 <|-- ConcreteFactory1
 ProductB1 <|-- ConcreteFactory1
 
-@@enduml
+@enduml

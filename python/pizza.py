@@ -44,17 +44,23 @@ class NYPizzaStore(PizzaStore):
     def __init__(self):
         pass
 
-    def createPizza(self, item):
+    def _createPizza(self, item):
+        pizza = None
+        ingredientFactory = NYPizzaIngredientFactory()
+
         if item == "cheese":
-            return NYStyleCheesePizza()
-        elif item == "pepperoni":
-            return NYStylePepperoniPizza()
-        elif item == "clam":
-            return NYStyleClamPizza()
+            pizza = CheesePizza(ingredientFactory)
+            pizza.setName("New York Style Cheese Pizza")
         elif item == "veggie":
-            return NYStyleVeggiePizza()
-        else:
-            return None
+            pizza = VeggiePizza(ingredientFactory)
+            pizza.setName("New York Style Veggie Pizza")
+        elif item == "clams":
+            pizza = ClamPizza(ingredientFactory)
+            pizza.setName("New York Style Clam Pizza")
+        elif item == "pepperoni":
+            pizza = PepperoniPizza(ingredientFactory)
+            pizza.setName("New York Style Pepperoni Pizza")
+        return pizza
 
 
 class Pizza:
@@ -65,15 +71,21 @@ class Pizza:
         self.dough = None
         self.sauce = None
         self.toppings = []
+        self.veggies = []
+        self.cheese = None
+        self.pepperoni = None
+        self.Clams = None
 
+    @abc.abstractmethod
     def prepare(self):
-        print("preparing %s" % (self.name))
-        print("Tossing dough...")
-        print("Adding sauce")
-        print("Adding toppings: ")
+        pass
+        # print("preparing %s" % (self.name))
+        # print("Tossing dough...")
+        # print("Adding sauce")
+        # print("Adding toppings: ")
 
-        for topping in self.toppings:
-            print("  %s" % (topping))
+        # for topping in self.toppings:
+        #     print("  %s" % (topping))
 
     def bake(self):
         print("Bake for 25 minutes at 350")
@@ -83,6 +95,9 @@ class Pizza:
 
     def box(self):
         print(" Place pizza in official PizzaStore box")
+
+    def setName(self, name):
+        self.name = name
 
     def getName(self):
         return self.name
@@ -116,3 +131,26 @@ if __name__ == "__main__":
 
     pizza = nyStore.orderPizza("cheese")
     print("Ethan ordered a %s \n" % (pizza.getName()))
+
+
+class CheesePizza(Pizza):
+    def __init__(self, ingredientFactory):
+        self.ingredientFactory = ingredientFactory
+
+    def prepare(self):
+        print("Preparing " + self.name)
+        self.dough = self.ingredientFactory.createDough()
+        self.sauce = self.ingredientFactory.createSauce()
+        self.cheese = self.ingredientFactory.createCheese()
+
+
+class ClamPizza(Pizza):
+    def __init__(self, ingredientFactory):
+        self.ingredientFactory = ingredientFactory
+
+    def prepare(self):
+        print("Preparing " + self.name)
+        self.dough = self.ingredientFactory.createDough()
+        self.sauce = self.ingredientFactory.createSauce()
+        self.cheese = self.ingredientFactory.createCheese()
+        self.clam = self.ingredientFactory.createClam()
