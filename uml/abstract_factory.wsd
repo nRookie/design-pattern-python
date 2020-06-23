@@ -1,0 +1,65 @@
+@startuml abstract factory
+
+interface AbstractFactory
+{
+    CreateProductA()
+    CreateProductB()
+}
+
+class ConcreteFactory1{
+    CreateProductA()
+    CreateProductB()
+}
+
+class ConcreteFactory2{
+    CreateProductA()
+    CreateProductB()
+}
+
+
+interface AbstractProductA
+{
+
+}
+
+interface AbstractProductB
+{
+
+}
+
+class ProductA1{
+
+}
+class ProductA2{
+
+}
+
+class ProductB1{
+
+}
+
+class ProductB2{
+
+}
+
+class Client{
+
+}
+
+class ConcreteFactory1 implements AbstractFactory
+class ConcreteFactory2 implements AbstractFactory
+class productA1 implements AbstractProductA
+class productA2 implements AbstractProductA
+class productB1 implements AbstractProductB
+class productB2 implements AbstractProductB
+
+
+AbstractFactory <|-- Client
+AbstractProductA <|-- Client
+AbstractProductB <|-- Client
+ProductA2 <|-- ConcreteFactory2
+ProductB2 <|-- ConcreteFactory2
+ProductA1 <|-- ConcreteFactory1
+ProductB1 <|-- ConcreteFactory1
+
+@@enduml
