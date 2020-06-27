@@ -1,0 +1,81 @@
+@startuml vendor
+
+class ApplianceControl{
+    on()
+    off()
+}
+
+class Stereo{
+    on()
+    off()
+    setCd()
+    setDvd()
+    setRadio()
+    setVolume()
+}
+
+class TV{
+    on()
+    off()
+    setInputChannel()
+    setVolume()
+}
+
+class CeilingLight{
+    on()
+    off()
+    dim()
+}
+
+class OutdoorLight{
+    on()
+    off()
+}
+
+class GardenLight{
+    setDuskTime()
+    setDawnTime()
+    manualOn()
+    manualOff()
+}
+
+class CeilingFan{
+    high()
+    medium()
+    low()
+    off()
+    getSpeed()
+}
+
+class Sprinkler{
+    waterOn()
+    waterOff()
+}
+
+class Light{
+    on()
+    off()
+}
+
+class FaucetControl{
+    openValue()
+    closeValue()
+}
+
+class Hottub
+{
+    circulate()
+    jetsOn()
+    jetsOff()
+    setTemperaturet()
+}
+
+class SecurityControl{
+    arm()
+    disarm()
+}
+
+class Thermostat{
+    setTemperaturet()
+}
+@enduml
